@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MdInputModule, MdRippleModule, MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
+import { MdInputModule, MdRippleModule, MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MdCheckboxModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 
 // providers
@@ -43,6 +43,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MdMenuModule, 
     MdToolbarModule, 
     MdIconModule,
+    MdCheckboxModule,
     RouterModule.forRoot(RouterConfig),
     ReactiveFormsModule
   ],
