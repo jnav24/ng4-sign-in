@@ -60,7 +60,8 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
     this.log_in = this.fb.group({
         email: ['', [Validators.required, Validators.pattern(/\S+@\S+\.\S+/)]],
-        password: ['', [Validators.required]]
+        password: ['', [Validators.required]],
+        remember_me: ['', []]
     });
 
     this.sign_up = this.fb.group({
@@ -93,7 +94,8 @@ export class SignInComponent implements OnInit {
                 email,
                 this.sign_up.value.first_name,
                 this.sign_up.value.last_name,
-                token
+                token,
+                false
             ), auth.uid);
             this.redirectUser(auth);
           });  
@@ -107,6 +109,9 @@ export class SignInComponent implements OnInit {
     this.signInService.loginUser(this.log_in.value.email, this.log_in.value.password)
         .then(auth => {
             auth.getToken().then(token => {
+              if (this.log_in.value.remember_me) {
+                this.signInService.setRememberMe(auth.uid);
+              }
               this.signInService.saveToken(token, auth.uid);
               this.redirectUser(auth);
             });  

@@ -3,6 +3,7 @@ export class Users {
         public email: string,
         public first_name: string,
         public last_name: string,
-        public token: string
+        public token: string,
+        public remember_me: boolean
     ) {}
 }
